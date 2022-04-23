@@ -29,7 +29,7 @@ export const Smoke = () => {
         party.start();
       }, 1000);
     }, 1000);
-  });
+  }, []);
 
   return <canvas ref={ref as any} width={1000} height={1000} />;
 };
