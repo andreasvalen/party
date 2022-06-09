@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-40%) ;
+  color:antiquewhite;
+  display: block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: 10.5ch;
+  background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/ 10ch 2px no-repeat;
+  font: 10ch droid sans mono, consolas, monospace;
+  letter-spacing: 0.5ch;
+}
+input:focus {
+  outline: none;
+  color: rosybrown;
+}

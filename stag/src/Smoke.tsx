@@ -9,17 +9,19 @@ export const Smoke = () => {
     var canvas: HTMLCanvasElement = ref.current as HTMLCanvasElement;
     var ctx = canvas.getContext("2d");
 
-    var party = SmokeMachine(ctx, [54, 16.8, 18.2]);
+    var party = SmokeMachine(ctx, [200, 200, 200]); //54, 16.8, 18.2]);
 
     party.start(); // start animating
 
-    party.addSmoke(500, 500, 10); // wow we made smoke
-
     setTimeout(function () {
       party.stop(); // stop animating
-
-      party.addSmoke(600, 500, 100);
-      party.addSmoke(500, 600, 20);
+      console.log("canvaias height", canvas.height);
+      party.addSmoke(
+        window.innerWidth / 2 - 70,
+        window.innerHeight / 1.55,
+        150
+      );
+      party.addSmoke(window.innerWidth / 2 + 50, window.innerHeight / 1.7, 50);
 
       for (var i = 0; i < 10; i++) {
         party.step(10); // pretend 10 ms pass and rerender
@@ -27,9 +29,15 @@ export const Smoke = () => {
 
       setTimeout(function () {
         party.start();
-      }, 1000);
+      }, 250);
     }, 1000);
   }, []);
 
-  return <canvas ref={ref as any} width={1000} height={1000} />;
+  return (
+    <canvas
+      ref={ref as any}
+      width={window.innerWidth - 50}
+      height={window.innerHeight - 50}
+    />
+  );
 };
